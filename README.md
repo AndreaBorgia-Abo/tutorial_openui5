@@ -1,5 +1,5 @@
 # tutorial_openui5
-Codice di esempio preso dai tutorial ufficiali di openui5 e prove varie
+Codice di esempio preso dai tutorial ufficiali di [openui5](https://openui5.org/) e prove varie
 
 Per creare una nuova app, ho usato:
 * [UI5 Tooling](https://sap.github.io/ui5-tooling/)
