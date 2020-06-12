@@ -6,14 +6,13 @@ Per creare una nuova app, ho usato:
 * [Easy-UI5](https://developers.sap.com/tutorials/cp-cf-sapui5-local-setup.html)
 
 Step da seguire per una nuova app:
-* npm init
+* npm init --yes
 * npm install --global @ui5/cli
-* ui5 init
 * npm install -g yo
 * npm install -g yo generator-easy-ui5
 * npm install -g mbt
-* choco install make (per Windows!)
-* yo easy-ui5 (questo crea manifest.json e vi evita [questo simpatico bug](https://github.com/SAP/ui5-project/issues/310) che si verifica creando la app manualmente)
+* choco install make (per Windows, da installare come administrator!)
+* yo easy-ui5 (questo crea manifest.json e vi evita [questo simpatico bug](https://github.com/SAP/ui5-project/issues/310) che si verifica creando la app manualmente; come opzioni usare "static webserver" e "local resource (OpenUI5)", il resto va bene default)
 * cd percorsoapp
 * segare la directory .git (per integrare tutta la app in un git esistente senza fare nuovo repo o submodulo)
 * ui5 --config=uimodule/ui5.yaml add themelib_sap_belize (per poter seguire gli esempi che lo richiedono)
