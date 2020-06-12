@@ -1,0 +1,16 @@
+{
+  "generator-easy-ui5": {
+    "projectname": "quickstart",
+    "namespace": "com.myorg",
+    "platform": "Static webserver",
+    "viewtype": "XML",
+    "viewname": "MainView",
+    "ui5libs": "Local resources (OpenUI5)",
+    "newdir": true,
+    "namespaceURI": "com/myorg",
+    "uimodules": [
+      "uimodule"
+    ],
+    "setupCompleted": true
+  }
+}
