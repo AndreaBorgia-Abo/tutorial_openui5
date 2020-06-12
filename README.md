@@ -6,7 +6,8 @@ Per creare una nuova app, ho usato:
 * [Easy-UI5](https://developers.sap.com/tutorials/cp-cf-sapui5-local-setup.html)
 
 Step da seguire per una nuova app:
-* npm init --yes
+* installare [Node.js](https://www.npmjs.com/get-npm) per avere npm
+* npm init --yes 
 * npm install --global @ui5/cli
 * npm install -g yo
 * npm install -g yo generator-easy-ui5
