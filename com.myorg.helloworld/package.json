@@ -10,6 +10,7 @@
     "karma": "run-s clearCoverage karma-ci",
     "lint": "eslint .",
     "serve:uimodule": "ui5 serve --config=uimodule/ui5.yaml",
+    "serve-dist": "ws --compress -d deployer/resources/uimodule",
     "build:uimodule": "ui5 build --config=uimodule/ui5.yaml --clean-dest --a --dest deployer/resources/uimodule --include-task=generateManifestBundle "
   },
   "devDependencies": {
