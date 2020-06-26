@@ -1,4 +1,4 @@
-sap.ui.define([
+sap.ui.require([
 	"sap/ui/core/mvc/XMLView"
 ], function (XMLView) {
 	"use strict";
