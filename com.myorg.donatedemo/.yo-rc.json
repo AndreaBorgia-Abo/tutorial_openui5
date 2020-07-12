@@ -1,0 +1,16 @@
+{
+  "generator-easy-ui5": {
+    "projectname": "donatedemo",
+    "namespace": "com.myorg",
+    "platform": "Static webserver",
+    "viewtype": "XML",
+    "viewname": "DemoView",
+    "ui5libs": "Local resources (OpenUI5)",
+    "newdir": true,
+    "namespaceURI": "com/myorg",
+    "uimodules": [
+      "uimodule"
+    ],
+    "setupCompleted": true
+  }
+}

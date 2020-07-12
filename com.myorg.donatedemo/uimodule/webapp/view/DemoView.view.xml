@@ -1,0 +1,23 @@
+<mvc:View controllerName="com.myorg.donatedemo.controller.DemoView" displayBlock="true" 
+  xmlns="sap.m" 
+  xmlns:core="sap.ui.core"
+  core:require="{ formatMessage: 'sap/base/strings/formatMessage' }"
+  xmlns:mvc="sap.ui.core.mvc">
+  <App id="idAppControl">
+    <pages>
+      <Page title="{i18n>title}">
+        <content>
+          <Button text="{i18n>donateButton}" press="showMessage"></Button>
+          <Label text="{parts: [
+            'i18n>donateText',
+            'view>/number'
+          ],
+        formatter: 'formatMessage'}"/>
+<!-- Il tutorial suggeriva di usare jQuery.sap.formatMessage, che però è deprecata;
+la soluzione moderna viene da qui:
+vedi https://stackoverflow.com/questions/55586783/how-to-use-formatmessage-module-with-i18n-model-and-parameters-in-xml-views -->
+        </content>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>
