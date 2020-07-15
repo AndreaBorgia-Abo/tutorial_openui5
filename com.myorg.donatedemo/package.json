@@ -10,11 +10,11 @@
     "karma": "run-s clearCoverage karma-ci",
     "lint": "eslint .",
     "serve:uimodule": "ui5 serve --config=uimodule/ui5.yaml",
-    "serve-dist": "ws --compress -d deployer/resources/uimodule",
+    "serve-dist": "ws --compress -d uimodule/dist",
     "build:uimodule": "ui5 build --config=uimodule/ui5.yaml --clean-dest --a --dest uimodule/dist --include-task=generateManifestBundle"
   },
   "devDependencies": {
-    "@ui5/cli": "^2.2.5",
+    "@ui5/cli": "^2.3.0",
     "eslint": "^7.1.0",
     "karma": "^5.0.9",
     "karma-chrome-launcher": "^3.1.0",

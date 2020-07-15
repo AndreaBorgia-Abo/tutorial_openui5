@@ -18,7 +18,7 @@ Step su Windows da seguire per una nuova app:
 * segare la directory .git (per integrare tutta la app in un git esistente senza fare nuovo repo o submodulo)
 * ui5 --config=uimodule/ui5.yaml add themelib_sap_belize (per poter seguire gli esempi che lo richiedono)
 * npm install local-web-server --save-dev (la [app di esempio ufficiale](https://github.com/SAP/openui5-sample-app) usa un [webserver dedicato](https://www.npmjs.com/package/local-web-server) per servire la build ottimizzata, mentre la app generata automaticamente non lo prevede)
-* inserire un target aggiuntivo in package.json: `"serve-dist": "ws --compress -d deployer/resources/uimodule",`
+* inserire un target aggiuntivo in package.json: `"serve-dist": "ws --compress -d uimodule/dist",`
 * npm run start (oppure) npm run serve-dist
 
 Step per Debian:
@@ -33,7 +33,7 @@ Step per Debian:
 * rm -rf .git (vedi sopra)
 * npx ui5 --config=uimodule/ui5.yaml add themelib_sap_belize 
 * npm install local-web-server --save-dev
-* inserire un target aggiuntivo in package.json: `"serve-dist": "ws --compress -d deployer/resources/uimodule",`
+* inserire un target aggiuntivo in package.json: `"serve-dist": "ws --compress -d uimodule/dist",`
 * npm run start (oppure) npm run serve-dist
 
 Attenzione:
