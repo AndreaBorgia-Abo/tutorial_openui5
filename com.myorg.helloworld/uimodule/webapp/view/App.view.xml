@@ -7,17 +7,24 @@
          <pages>
             <Page title="{App>homePageTitle}">
                <content>
-                  <Panel headerText="{App>helloPanelTitle}">
+                  <Panel headerText="{App>helloPanelTitle}" class="sapUiResponsiveMargin" width="auto">
                      <content>
-                        <Button text="{App>showHelloButtonText}" press=".onShowHello"/>
+                        <Button
+                           text="{App>showHelloButtonText}"
+                           press=".onShowHello" 
+                           class="sapUiSmallMarginEnd"/>
                         <!-- La stringa helloMsg vive nella risorsa "App" impostata dal controller,
                         mentre il nome da salutare vive nel modello corrente, ergo nessun prefisso! -->
-                        <Input value="{/recipient/name}" description="{ 
-         parts: [
-            'App>helloMsg',
-            '/recipient/name'
-         ],
-         formatter: 'formatMessage'}" valueLiveUpdate="true" width="60%"/>
+                        <Input 
+                           value="{/recipient/name}" 
+                           valueLiveUpdate="true" 
+                           width="60%"/>
+                        <Text 
+                           text="{ parts: [
+                              'App>helloMsg',
+                              '/recipient/name'
+                              ],
+                              formatter: 'formatMessage'}" class="sapUiSmallMargin"/>
                      </content>
                   </Panel>
                </content>
