@@ -1,21 +1,26 @@
-<mvc:View 
-   controllerName="sap.ui.demo.walkthrough.controller.App" 
-   xmlns="sap.m" 
-   xmlns:core="sap.ui.core" core:require="{ formatMessage: 'sap/base/strings/formatMessage' }" 
-   xmlns:mvc="sap.ui.core.mvc">
-   <Button
-      text="{App>showHelloButtonText}" 
-      press=".onShowHello"/>
-<!-- La stringa helloMsg vive nella risorsa "App" impostata dal controller,
+<mvc:View controllerName="sap.ui.demo.walkthrough.controller.App"
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" core:require="{ formatMessage: 'sap/base/strings/formatMessage' }"
+   xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
+   <App>
+      <pages>
+         <Page title="{App>homePageTitle}">
+            <content>
+               <Panel headerText="{App>helloPanelTitle}">
+                  <content>
+                     <Button text="{App>showHelloButtonText}" press=".onShowHello"/>
+                     <!-- La stringa helloMsg vive nella risorsa "App" impostata dal controller,
 mentre il nome da salutare vive nel modello corrente, ergo nessun prefisso! -->
-   <Input 
-      value="{/recipient/name}" 
-      description="{ 
+                     <Input value="{/recipient/name}" description="{ 
          parts: [
             'App>helloMsg',
             '/recipient/name'
          ],
-         formatter: 'formatMessage'}" 
-      valueLiveUpdate="true"
-      width="60%"/>
+         formatter: 'formatMessage'}" valueLiveUpdate="true" width="60%"/>
+                  </content>
+               </Panel>
+            </content>
+         </Page>
+      </pages>
+   </App>
 </mvc:View>
