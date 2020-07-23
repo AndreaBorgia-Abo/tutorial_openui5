@@ -1,0 +1,18 @@
+<mvc:View controllerName="sap.ui.demo.walkthrough.controller.HelloPanel"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core" core:require="{ formatMessage: 'sap/base/strings/formatMessage' }"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Panel headerText="{App>helloPanelTitle}" class="sapUiResponsiveMargin" width="auto">
+        <content>
+            <Button text="{App>showHelloButtonText}" press=".onShowHello" class="myCustomButton"/>
+            <!-- La stringa helloMsg vive nella risorsa "App" impostata dal controller,
+                        mentre il nome da salutare vive nel modello corrente, ergo nessun prefisso! -->
+            <Input value="{/recipient/name}" valueLiveUpdate="true" width="60%"/>
+            <FormattedText htmlText="{ parts: [
+                            'App>helloMsg',
+                            '/recipient/name'
+                          ],
+                          formatter: 'formatMessage'}" class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"/>
+        </content>
+    </Panel>
+</mvc:View>
