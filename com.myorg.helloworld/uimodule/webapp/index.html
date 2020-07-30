@@ -14,6 +14,11 @@
 		data-sap-ui-compatVersion="edge"
 		data-sap-ui-async="true">
 	</script>
+<!-- data-sap-ui-preload="" nel tag script consentirebbe di zittire gli avvisi
+su Component-preload.js mancante; questo file esiste solo se si usa
+la build di produzione, vedi:
+https://answers.sap.com/questions/10593983/ui5-components-componentpreloadjs.html
+https://blogs.sap.com/2015/02/18/optimizing-openui5-apps/ -->
 </head>
 <body class="sapUiBody" id="content">
 	<div data-sap-ui-component data-name="sap.ui.demo.walkthrough" data-id="container" data-settings='{"id" : "walkthrough"}'></div>
