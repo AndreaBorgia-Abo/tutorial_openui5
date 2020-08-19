@@ -4,6 +4,10 @@
     xmlns:mvc="sap.ui.core.mvc">
     <Panel headerText="{App>helloPanelTitle}" class="sapUiResponsiveMargin" width="auto">
         <content>
+            <Button id="helloDialogButton"
+                text="{App>openDialogButtonText}"
+                press=".onOpenDialog"
+                class="sapUiSmallMarginEnd"/>
             <Button text="{App>showHelloButtonText}" press=".onShowHello" class="myCustomButton"/>
             <!-- La stringa helloMsg vive nella risorsa "App" impostata dal controller,
                         mentre il nome da salutare vive nel modello corrente, ergo nessun prefisso! -->
