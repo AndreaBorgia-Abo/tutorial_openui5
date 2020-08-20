@@ -8,5 +8,10 @@
                             '/recipient/name'
                           ],
                           formatter: 'formatMessage'}">
+      <beginButton>
+         <Button
+            text="{App>dialogCloseButtonText}"
+            press=".onCloseDialog"/>
+      </beginButton>
    </Dialog>
 </core:FragmentDefinition>
