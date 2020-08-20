@@ -8,6 +8,12 @@
                             '/recipient/name'
                           ],
                           formatter: 'formatMessage'}">
+      <content>
+         <core:Icon
+            src="sap-icon://hello-world"
+            size="8rem"
+            class="sapUiMediumMargin"/>
+      </content>                          
       <beginButton>
          <Button
             text="{App>dialogCloseButtonText}"
