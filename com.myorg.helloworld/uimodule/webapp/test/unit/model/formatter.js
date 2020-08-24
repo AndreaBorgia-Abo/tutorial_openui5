@@ -9,7 +9,8 @@ sap.ui.define([
 	QUnit.module("Formatting functions", {
 		beforeEach: function () {
 			this._oResourceModel = new ResourceModel({
-				bundleUrl: sap.ui.require.toUrl("sap/ui/demo/walkthrough") + "/i18n/App.properties"
+                // Il test va eseguito in EN, altrimenti dà errore se default è diverso
+				bundleUrl: sap.ui.require.toUrl("sap/ui/demo/walkthrough") + "/i18n/App_en.properties"
 			});
 		},
 		afterEach: function () {
@@ -35,7 +36,6 @@ sap.ui.define([
 		// System under test
 		var fnIsolatedFormatter = formatter.statusText.bind(oControllerStub);
 
-        // Il test va eseguito in EN, altrimenti dà errore
 		// Assert
 		assert.strictEqual(fnIsolatedFormatter("A"), "New", "The long text for status A is correct");
 
