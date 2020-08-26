@@ -5,16 +5,16 @@ sap.ui.define([
  ], function (UIComponent, JSONModel, HelloDialog) {
     "use strict";
     return UIComponent.extend("sap.ui.demo.walkthrough.Component", {
-        metadata : {
+        metadata: {
             manifest: "json"
        },
-       init : function () {
+       init: function () {
           // call the init function of the parent
           UIComponent.prototype.init.apply(this, arguments);
           // set data model
           var oData = {
-             recipient : {
-                name : "World"
+             recipient: {
+                name: "World"
              }
           };
           var oModel = new JSONModel(oData);
@@ -27,12 +27,12 @@ sap.ui.define([
 		},
 
 
-		exit : function() {
+		exit: function() {
 			this._helloDialog.destroy();
 			delete this._helloDialog;
 		},
 
-		openHelloDialog : function () {
+		openHelloDialog: function () {
 			this._helloDialog.open();
        }
     });
