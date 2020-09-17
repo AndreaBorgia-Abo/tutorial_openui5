@@ -34,6 +34,7 @@
             type="Navigation"
 				press="onPress">
             <firstStatus>
+            <!-- Northwind OData service: manca Status, che c'era nel JSON! -->
                <ObjectStatus text="{
 					   path: 'invoice>Status',
 					   formatter: '.formatter.statusText'
