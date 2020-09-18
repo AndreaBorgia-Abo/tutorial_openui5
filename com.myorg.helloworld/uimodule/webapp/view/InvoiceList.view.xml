@@ -1,7 +1,7 @@
 <mvc:View controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
    xmlns="sap.m"
    xmlns:mvc="sap.ui.core.mvc">
-   <List id="invoiceList"
+   <Table id="invoiceList"
       headerText="{App>invoiceListTitle}"
       class="sapUiResponsiveMargin"
       width="auto"
@@ -20,27 +20,57 @@
                search=".onFilterInvoices" />
          </Toolbar>
       </headerToolbar>
-      <items>
-         <ObjectListItem title="{invoice>Quantity} x {invoice>ProductName}"
-            number="{
-			      parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
-			      type: 'sap.ui.model.type.Currency',
-			      formatOptions: {
-				      showMeasure: false
-			      }
-		      }"
-            numberUnit="{view>/currency}"
-            numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"
-            type="Navigation"
-				press="onPress">
-            <firstStatus>
-            <!-- Northwind OData service: manca Status, che c'era nel JSON! -->
-               <ObjectStatus text="{
-					   path: 'invoice>Status',
-					   formatter: '.formatter.statusText'
-				   }" />
-            </firstStatus>
-         </ObjectListItem>
-      </items>
-   </List>
+		<columns>
+			<Column
+				hAlign="End"
+				minScreenWidth="Small"
+				demandPopin="true"
+				width="4em">
+				<Text text="{App>columnQuantity}"/>
+			</Column>
+			<Column>
+				<Text text="{App>columnName}"/>
+			</Column>
+			<Column
+				minScreenWidth="Small"
+				demandPopin="true">
+				<Text text="{App>columnStatus}"/>
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="false">
+				<Text text="{App>columnSupplier}"/>
+			</Column>
+			<Column
+				hAlign="End">
+				<Text text="{App>columnPrice}"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem
+				type="Navigation"
+				press=".onPress">
+				<cells>
+					<ObjectNumber number="{invoice>Quantity}" emphasized="false"/>
+					<ObjectIdentifier title="{invoice>ProductName}"/>
+               
+					<Text text="{
+						path: 'invoice>Status',
+						formatter: '.formatter.statusText'
+					}"/>
+					<Text text="{invoice>ShipperName}"/>
+					<ObjectNumber
+						number="{
+							parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
+							type: 'sap.ui.model.type.Currency',
+							formatOptions: {
+								showMeasure: false
+							}
+						}"
+						unit="{view>/currency}"
+						state="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
 </mvc:View>
