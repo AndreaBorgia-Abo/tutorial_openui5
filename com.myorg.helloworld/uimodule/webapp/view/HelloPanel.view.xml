@@ -2,13 +2,18 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core" core:require="{ formatMessage: 'sap/base/strings/formatMessage' }"
     xmlns:mvc="sap.ui.core.mvc">
-    <Panel headerText="{App>helloPanelTitle}" class="sapUiResponsiveMargin" width="auto">
+    <Panel 
+        headerText="{App>helloPanelTitle}" 
+        class="sapUiResponsiveMargin" 
+        width="auto"
+        expandable="{device>/system/phone}"
+		expanded="{= !${device>/system/phone} }">
         <content>
             <Button id="helloDialogButton"
                 icon="sap-icon://world"
                 text="{App>openDialogButtonText}"
                 press=".onOpenDialog"
-                class="sapUiSmallMarginEnd"/>
+                class="sapUiSmallMarginEnd sapUiVisibleOnlyOnDesktop"/>
             <Button text="{App>showHelloButtonText}" press=".onShowHello" class="myCustomButton"/>
             <!-- La stringa helloMsg vive nella risorsa "App" impostata dal controller,
                         mentre il nome da salutare vive nel modello corrente, ergo nessun prefisso! -->
