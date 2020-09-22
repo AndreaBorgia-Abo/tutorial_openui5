@@ -40,6 +40,10 @@
 				"sap.m": {}
 			}
 		},
+		"contentDensities": {
+      		"compact": true,
+      		"cozy": true
+    	},
 		"models": {
 			"App": {
 				"type": "sap.ui.model.resource.ResourceModel",
