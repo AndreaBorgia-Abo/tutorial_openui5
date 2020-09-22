@@ -3,6 +3,15 @@
 		xmlns="sap.m"
 		xmlns:mvc="sap.ui.core.mvc">
 	<Page title="{App>homePageTitle}">
+		<landmarkInfo>
+			<PageAccessibleLandmarkInfo
+				rootRole="Region"
+				rootLabel="{App>Overview_rootLabel}"
+				contentRole="Main"
+				contentLabel="{App>Overview_contentLabel}"
+				headerRole="Banner"
+				headerLabel="{App>Overview_headerLabel}"/>
+		</landmarkInfo>
 		<headerContent>
 			<Button
 					icon="sap-icon://hello-world"
