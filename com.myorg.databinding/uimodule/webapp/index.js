@@ -33,7 +33,8 @@ sap.ui.require([
 		
 		// Display the XML view called "App"
 		new XMLView({
-			viewName: "com.myorg.databinding.view.App"
+			viewName: "com.myorg.databinding.view.App",
+			async: true
         }).placeAt("content");
 	});
 });
