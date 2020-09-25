@@ -1,7 +1,7 @@
 {
   "_version": "1.21.0",
   "sap.app": {
-    "id": "com.myorg.DataBinding",
+    "id": "com.myorg.databinding",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -28,7 +28,7 @@
   },
   "sap.ui5": {
     "rootView": {
-      "viewName": "com.myorg.DataBinding.view.App",
+      "viewName": "com.myorg.databinding.view.App",
       "type": "XML",
       "async": true,
       "id": "idAppControl"
@@ -49,7 +49,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "com.myorg.DataBinding.i18n.i18n"
+          "bundleName": "com.myorg.databinding.i18n.i18n"
         }
       }
     },
@@ -64,7 +64,7 @@
       "config": {
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
-        "viewPath": "com.myorg.DataBinding.view",
+        "viewPath": "com.myorg.databinding.view",
         "controlId": "idAppControl",
         "controlAggregation": "pages",
         "async": true

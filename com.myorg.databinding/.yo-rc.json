@@ -1,6 +1,6 @@
 {
   "generator-easy-ui5": {
-    "projectname": "DataBinding",
+    "projectname": "databinding",
     "namespace": "com.myorg",
     "platform": "Static webserver",
     "viewtype": "XML",
