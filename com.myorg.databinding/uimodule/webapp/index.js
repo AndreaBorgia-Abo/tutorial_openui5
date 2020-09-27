@@ -7,7 +7,10 @@ sap.ui.require([
 
 	// Attach an anonymous function to the SAPUI5 'init' event
 	sap.ui.getCore().attachInit(function () {
-        // Create a JSON model from an object literal
+		var oProductModel = new JSONModel();
+		oProductModel.loadData("./model/Products.json");
+		sap.ui.getCore().setModel(oProductModel, "products");
+
 		var oModel = new JSONModel({
 			firstName: "Harry",
 			lastName: "Hawk",
@@ -20,25 +23,25 @@ sap.ui.require([
 			},
 			salesAmount: 12345.6789,
 			currencyCode: "EUR"
-        });
-
-		// Assign the model object to the SAPUI5 core
-        sap.ui.getCore().setModel(oModel);
-		
-		// Create a resource bundle for language specific texts
-		var oResourceModel = new ResourceModel({
-			bundleName: "com.myorg.databinding.i18n.i18n"
 		});
 
-		// Assign the model object to the SAPUI5 core using the name "i18n"
+		// Assign the model object to the SAPUI5 core
+		sap.ui.getCore().setModel(oModel);
+
+		var oResourceModel = new ResourceModel({
+			bundleName: "com.myorg.databinding.i18n.i18n",
+			fallbackLocale: "",
+			supportedLocales: ["", "de"]
+		});
+
 		sap.ui.getCore().setModel(oResourceModel, "i18n");
-		
+
 		// Display the XML view called "App"
 		var oView = new XMLView({
 			viewName: "com.myorg.databinding.view.App",
 			async: true
 		});
-		
+
 		// Register the view with the message manager
 		sap.ui.getCore().getMessageManager().registerObject(oView, true);
 
