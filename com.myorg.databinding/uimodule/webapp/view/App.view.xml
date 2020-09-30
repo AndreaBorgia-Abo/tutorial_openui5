@@ -60,7 +60,9 @@
 							type: 'sap.ui.model.type.Currency',
 							formatOptions: { showMeasure: false }
 						}"
-						numberUnit="{/currencyCode}">
+						numberUnit="{/currencyCode}"
+						numberState="{= ${products>UnitPrice} &lt;= ${/priceThreshold} ? 'Success' : 'Error' }">
+<!-- Attenzione ai "minore" che in XML sono interpretati e vanno protetti! -->						
 						<attributes>
 							<ObjectAttribute text="{products>QuantityPerUnit}"/>
 							<ObjectAttribute title="{i18n>stockValue}"

@@ -22,6 +22,7 @@ sap.ui.require([
 				country: "Germany"
 			},
 			salesAmount: 12345.6789,
+			priceThreshold: 20,
 			currencyCode: "EUR"
 		});
 
