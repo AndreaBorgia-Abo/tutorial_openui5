@@ -1,24 +1,40 @@
-<mvc:View 
-  controllerName="com.myorg.databinding.controller.App"
-  xmlns="sap.m" 
-  xmlns:form="sap.ui.layout.form"
-  xmlns:l="sap.ui.layout"
-  xmlns:mvc="sap.ui.core.mvc">
-  <Panel headerText="{i18n>panel1HeaderText}" class="sapUiResponsiveMargin" width="auto">
-    <content>
-      <Label text="{i18n>firstName}" class="sapUiSmallMargin" />
-      <Input value="{/firstName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}" />
-      <Label text="{i18n>lastName}" class="sapUiSmallMargin" />
-      <Input value="{/lastName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}" />
-      <CheckBox selected="{/enabled}" text="{i18n>enabled}" />
-    </content>
-  </Panel>
-  	<Panel headerText="{i18n>panel2HeaderText}" class="sapUiResponsiveMargin" width="auto">
+<mvc:View controllerName="com.myorg.databinding.controller.App"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Panel headerText="{i18n>panel1HeaderText}"
+		class="sapUiResponsiveMargin"
+		width="auto">
+		<content>
+			<Label text="{i18n>firstName}"
+				class="sapUiSmallMargin" />
+			<Input value="{/firstName}"
+				valueLiveUpdate="true"
+				width="200px"
+				enabled="{/enabled}" />
+			<Label text="{i18n>lastName}"
+				class="sapUiSmallMargin" />
+			<Input value="{/lastName}"
+				valueLiveUpdate="true"
+				width="200px"
+				enabled="{/enabled}" />
+			<CheckBox selected="{/enabled}"
+				text="{i18n>enabled}" />
+		</content>
+	</Panel>
+	<Panel headerText="{i18n>panel2HeaderText}"
+		class="sapUiResponsiveMargin"
+		width="auto">
 		<content>
 			<l:HorizontalLayout>
 				<l:VerticalLayout>
-					<Label class="sapUiSmallMargin" text="{i18n>address}:"/>
-					<FormattedText class="sapUiSmallMarginBegin sapUiSmallMarginBottom" htmlText="{/address/street}&lt;br&gt;{/address/zip} {/address/city}&lt;br&gt;{/address/country}" width="200px"/>
+					<Label class="sapUiSmallMargin"
+						text="{i18n>address}:" />
+					<FormattedText class="sapUiSmallMarginBegin sapUiSmallMarginBottom"
+						htmlText="{/address/street}&lt;br&gt;{/address/zip} {/address/city}&lt;br&gt;{/address/country}"
+						width="200px" />
 					<Link class="sapUiSmallMarginBegin"
 						href="{
 								parts: [
@@ -27,11 +43,14 @@
 								],
 								formatter: '.formatMail'
 							}"
-						text="{i18n>sendEmail}"/>
-      			</l:VerticalLayout>
+						text="{i18n>sendEmail}" />
+				</l:VerticalLayout>
 				<l:VerticalLayout>
-					<Label text="{i18n>salesAmount}:" class="sapUiSmallMargin"/>
-					<Input width="200px" enabled="{/enabled}" description="{/currencyCode}"
+					<Label text="{i18n>salesAmount}:"
+						class="sapUiSmallMargin" />
+					<Input width="200px"
+						enabled="{/enabled}"
+						description="{/currencyCode}"
 						value="{
 							parts: [
 								{path: '/salesAmount'},
@@ -39,66 +58,53 @@
 							],
 							type: 'sap.ui.model.type.Currency',
 							formatOptions: {showMeasure: false}
-						}"/>
+						}" />
 				</l:VerticalLayout>
 			</l:HorizontalLayout>
 		</content>
 	</Panel>
-	<Panel headerText="{i18n>panel3HeaderText}" class="sapUiResponsiveMargin" width="auto">
+	<Panel headerText="{i18n>panel3HeaderText}"
+		class="sapUiResponsiveMargin"
+		width="auto">
 		<content>
-			<List headerText="{i18n>productListTitle}" items="{products>/Products}">
-				<items>
-					<ObjectListItem 
-						press=".onItemSelected"
-						type="Active"
-					    title="{products>ProductName}"
-						number="{
-							parts: [
-								{path: 'products>UnitPrice'},
-								{path: '/currencyCode'}
-							],
-							type: 'sap.ui.model.type.Currency',
-							formatOptions: { showMeasure: false }
-						}"
-						numberUnit="{/currencyCode}"
-						numberState="{= ${products>UnitPrice} &lt;= ${/priceThreshold} ? 'Success' : 'Error' }">
-<!-- Attenzione ai "minore" che in XML sono interpretati e vanno protetti! -->						
-						<attributes>
-							<ObjectAttribute text="{products>QuantityPerUnit}"/>
-							<ObjectAttribute title="{i18n>stockValue}"
-								text="{
-									parts: [
-										{path: 'products>UnitPrice'},
-										{path: 'products>UnitsInStock'},
-										{path: '/currencyCode'}
-									],
-									formatter: '.formatStockValue'
-								}"/>
-						</attributes>
-					</ObjectListItem>
-				</items>
+			<List id="ProductList"
+				headerText="{i18n>productListTitle}"
+				items="{
+					path: 'products>/Products',
+					factory: '.productListFactory'
+				}">
+				<dependents>
+					<core:Fragment fragmentName="com.myorg.databinding.view.ProductSimple"
+						type="XML" />
+					<core:Fragment fragmentName="com.myorg.databinding.view.ProductExtended"
+						type="XML" />
+				</dependents>
 			</List>
 		</content>
 	</Panel>
-	<Panel id="productDetailsPanel" headerText="{i18n>panel4HeaderText}" class="sapUiResponsiveMargin" width="auto">
-		<form:SimpleForm editable="true" layout="ColumnLayout">
-			<Label text="{i18n>ProductID}"/>
-			<Input value="{products>ProductID}"/>
+	<Panel id="productDetailsPanel"
+		headerText="{i18n>panel4HeaderText}"
+		class="sapUiResponsiveMargin"
+		width="auto">
+		<form:SimpleForm editable="true"
+			layout="ColumnLayout">
+			<Label text="{i18n>ProductID}" />
+			<Input value="{products>ProductID}" />
 
-			<Label text="{i18n>ProductName}"/>
-			<Input value="{products>ProductName}"/>
+			<Label text="{i18n>ProductName}" />
+			<Input value="{products>ProductName}" />
 
-			<Label text="{i18n>QuantityPerUnit}"/>
-			<Input value="{products>QuantityPerUnit}"/>
+			<Label text="{i18n>QuantityPerUnit}" />
+			<Input value="{products>QuantityPerUnit}" />
 
-			<Label text="{i18n>UnitPrice}"/>
-			<Input value="{products>UnitPrice}"/>
+			<Label text="{i18n>UnitPrice}" />
+			<Input value="{products>UnitPrice}" />
 
-			<Label text="{i18n>UnitsInStock}"/>
-			<Input value="{products>UnitsInStock}"/>
+			<Label text="{i18n>UnitsInStock}" />
+			<Input value="{products>UnitsInStock}" />
 
-			<Label text="{i18n>Discontinued}"/>
-			<CheckBox selected="{products>Discontinued}"/>
+			<Label text="{i18n>Discontinued}" />
+			<CheckBox selected="{products>Discontinued}" />
 		</form:SimpleForm>
 	</Panel>
 </mvc:View>
