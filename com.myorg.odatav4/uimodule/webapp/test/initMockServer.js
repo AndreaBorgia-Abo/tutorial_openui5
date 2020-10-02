@@ -1,5 +1,5 @@
 sap.ui.define([
-	"com/myorg/odatav4/localService/mockserver",
+	"../localService/mockserver",
 	"sap/base/Log",
 	"sap/m/MessageBox"
 ], function (mockserver, Log, MessageBox) {
