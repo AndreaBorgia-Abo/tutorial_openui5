@@ -69,7 +69,6 @@
 				"settings": {
 					"autoExpandSelect": true,
 					"operationMode": "Server",
-					"groupId": "$direct",
 					"synchronizationMode": "None"
 				}
 			}
