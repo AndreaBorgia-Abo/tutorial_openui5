@@ -90,6 +90,17 @@ sap.ui.define([
 			this.getView().getModel().submitBatch("peopleGroup").then(fnSuccess, fnError);
 			this._bTechnicalErrors = false; // If there were technical errors, a new save resets them.
 		},
+		onDelete : function () {
+			var oSelected = this.byId("peopleList").getSelectedItem();
+
+			if (oSelected) {
+				oSelected.getBindingContext().delete("$auto").then(function () {
+					MessageToast.show(this._getText("deletionSuccessMessage"));
+				}.bind(this), function (oError) {
+					MessageBox.error(oError.message);
+				});
+			}
+		},
 		onResetChanges : function () {
 			this.byId("peopleList").getBinding("items").resetChanges();
 			this._bTechnicalErrors = false; 
