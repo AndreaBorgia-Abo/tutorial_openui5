@@ -24,7 +24,7 @@ Step su Windows da seguire per una nuova app:
 Step per Debian:
 * apt-get install nodejs npm
 * npm init --yes
-* npm install @ui5/cli
+* npm install @ui5/cli --save-dev
 * npm install yo
 * npm install generator-easy-ui5
 * npm install mbt
